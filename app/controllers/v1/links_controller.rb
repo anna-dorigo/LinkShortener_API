@@ -8,8 +8,6 @@ class V1::LinksController < ApplicationController
 
 	def show
 		@link = Link.find(params[:id])
-		puts "-------------------------"
-		puts ENV["DOMAIN_URL"]
     	render json: @link, :methods => :shortened_url
   	end
 
@@ -26,7 +24,7 @@ class V1::LinksController < ApplicationController
 	    end 
 
 	    if @link.save
-	    	render json: @link, status: :created
+	    	render json: @link, status: :created, :methods => :shortened_url
 	    else
 	    	render json: @link.errors, status: :unprocessable_entity
 	    end
