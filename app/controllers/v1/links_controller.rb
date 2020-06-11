@@ -49,10 +49,13 @@ class V1::LinksController < ApplicationController
 	end
 
 	def update
-		puts params.inspect
 		@link = Link.where(id: params[:id]).first
 
-		if @link.update_attribute(:status, params[:status])
+		if @link.nil?
+			render json: {
+				message: 'Record not found'
+			}
+		elsif @link.update_attribute(:status, params[:status])
 			render json: {
 				message: 'Record updated correctly'
 			}
