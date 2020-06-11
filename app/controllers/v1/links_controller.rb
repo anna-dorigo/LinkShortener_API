@@ -2,7 +2,13 @@ class V1::LinksController < ApplicationController
 
 	def index
 		@links = Link.all
-		render json:@links, status: :ok
+		if not @links.blank?
+			render json:@links, status: :ok
+		else
+			render json: {
+				error_message: 'No Links found on the data base'
+			}
+		end
 	end
 
 	def show
