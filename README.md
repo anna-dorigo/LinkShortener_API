@@ -3,6 +3,10 @@
 ## README
 The intention of this code is to create an API used to shorten URL's. 
 
+The API takes one or two arguments: the URL we want to shorten (required) and the slug (optional). 
+
+The API has the option to activate or desactivate the short url. At the moment of creation the short url is active, you call the update method to deactivate the url. (Take a look at the **Give it a try!** section.
+
 ## Installation Instruction
 
 1. Make sure you have rails 6 installed:
