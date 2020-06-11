@@ -1,24 +1,50 @@
-# README
+# Link Shortener API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## README
+The intention of this code is to create an API used to shorten URL's. 
 
-Things you may want to cover:
+## Installation Instruction
 
-* Ruby version
+Make usre you have the following installed:
+- Rails 6 
+- ruby 2.6.3p62
 
-* System dependencies
+## Tests 
+The code uses the RSpec testing framework, to run the test use the following command:
 
-* Configuration
+```
+rspec
+```
 
-* Database creation
+## Give it a try!
+The API can be tested usingn the command line using the following curl requests:
 
-* Database initialization
+UPDATE:
+```
+curl -X PUT -d 'status=true' http://localhost:3000/v1/links/7
+```
 
-* How to run the test suite
+SHOW
+```
+curl http://localhost:3000/v1/links/8
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+INDEX
+```
+curl http://localhost:3000/v1/links/
+```
 
-* Deployment instructions
+DELETE
+```
+curl -X DELETE http://localhost:3000/v1/links/4
+```
+CREATE
+```
+curl -d 'original_url=http://www.google.com&slug=myslug' http://localhost:3000/v1/links/
+```
 
-* ...
+## Future Enhancements:
+
+- Add Regular expression to validate URL.
+- Increment the number of test cases.
+- Limit the number of chars in the slug?
