@@ -5,7 +5,7 @@ The intention of this code is to create an API used to shorten URL's.
 
 ## Installation Instruction
 
-Make usre you have the following installed:
+First make sure you have the following installed:
 - Rails 6 
 - ruby 2.6.3p62
 
