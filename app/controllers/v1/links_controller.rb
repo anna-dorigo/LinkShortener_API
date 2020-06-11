@@ -33,10 +33,24 @@ class V1::LinksController < ApplicationController
 		@link = Link.where(id: params[:id]).first
 
 		if @link.destroy
-	    	head(:ok)
+	    	render json: {
+				message: 'Record deleted correctly'
+			}
 	    else
 	    	render json: @link.errors, status: :unprocessable_entity
 	    end
+	end
+
+	def update
+		puts params.inspect
+		@link = Link.where(id: params[:id]).first
+
+		if @link.update_attribute(:status, params[:status])
+			render json: {
+				message: 'Record updated correctly'
+			}
+		end
+
 	end
 
 
