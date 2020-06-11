@@ -1,4 +1,11 @@
 class ApplicationController < ActionController::API
+	rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+	def record_not_found
+    	render json: {
+				error_message: 'Record not found'
+		}
+  	end
+
 	def redirect
 		url_string = params[:lookup_code]
 		if url_string.chr == "_"
