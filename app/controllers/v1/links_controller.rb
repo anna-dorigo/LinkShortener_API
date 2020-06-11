@@ -3,6 +3,7 @@ class V1::LinksController < ApplicationController
 	def index
 		@links = Link.all
 		if not @links.blank?
+			@links = @links.all.map{ |l| l.attributes.merge({ shortened_url: l.shortened_url }) }
 			render json:@links, status: :ok
 		else
 			render json: {
